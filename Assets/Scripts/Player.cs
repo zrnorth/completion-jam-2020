@@ -59,7 +59,8 @@ public class Player : MonoBehaviour
         }
         // Reduce gravity while jump is held, so that the player can more
         // granularly choose how high to jump.
-        if (Input.GetKey(KeyCode.Space) && this._rb.velocity.y > 0f) {
+        if (Input.GetKey(KeyCode.Space) && _rb.velocity.y > 0f) {
+            
             _rb.gravityScale = _originalGravityScale / _jumpingGravityReduction;
         } else {
             _rb.gravityScale = _originalGravityScale;
@@ -92,13 +93,32 @@ public class Player : MonoBehaviour
     }
 
     private void OnTriggerEnter2D(Collider2D other) {
-        if (other.gameObject.tag == "KillsPlayer") {
+        switch (other.gameObject.tag) {
+            case "KillsPlayer":
+                _gameManager.PlayerDied();
+                return;
+            case "Enemy":
+                HitEnemy(other.gameObject.GetComponent<Enemy>());
+                return;
+            default: return;
+        }
+    }
+
+    private void HitEnemy(Enemy enemy) {
+        // Check if we stomped the enemy. 
+        float verticalHeightAboveEnemy = transform.position.y - enemy.transform.position.y;
+        Debug.Log("height above: " + verticalHeightAboveEnemy);
+        Debug.Log("bounds: " + _collider.bounds.extents.y);
+        if (verticalHeightAboveEnemy > _collider.bounds.extents.y) {
+            enemy.Stomp();
+        } else {
             _gameManager.PlayerDied();
         }
     }
 
     private void UpdateGrounded() {
         float distance = _collider.bounds.extents.y + 0.1f;
+
         RaycastHit2D hit = Physics2D.BoxCast(_collider.bounds.center, _collider.bounds.size, 0f, Vector2.down, distance, _groundMask);
         if (hit.collider != null) {
             _lastGroundedTime = GROUNDED;
