@@ -5,31 +5,35 @@ using UnityEngine.SceneManagement;
 
 public class SceneTransitioner : MonoBehaviour
 {
+    enum Type
+    {
+        ReloadScene,
+        LoadNextScene,
+        LoadSpecifiedScene
+    }
     [SerializeField]
-    private int _sceneToLoad = -1;
-
+    private Type type;
     [SerializeField]
-    private bool loadNextIndex = true;
+    private int _specifiedSceneIfNeeded = -1;
 
     public void LoadNextScene()
     {
         Debug.Log("You win!");
-        GameObject dontUnload = GameObject.Find("DontUnload");
-        if (dontUnload)
-        {
-            foreach (Transform child in dontUnload.transform)
-            {
-                Destroy(child.gameObject);
-            }
-        }
-        if (loadNextIndex)
-        {
-            int buildIndex = SceneManager.GetActiveScene().buildIndex;
-            SceneManager.LoadScene(buildIndex + 1);
-        }
-        else
-        {
-            SceneManager.LoadScene(_sceneToLoad);
+        int currentSceneIdx = SceneManager.GetActiveScene().buildIndex;
+
+        switch (type) {
+            case Type.ReloadScene:
+                SceneManager.LoadScene(currentSceneIdx);
+                return;
+            case Type.LoadNextScene:
+                SceneManager.LoadScene(currentSceneIdx + 1);
+                return;
+            case Type.LoadSpecifiedScene:
+                SceneManager.LoadScene(_specifiedSceneIfNeeded);
+                return;
+            default:
+                return;
+
         }
     }
 }
