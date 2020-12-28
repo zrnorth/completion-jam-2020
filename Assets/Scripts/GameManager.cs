@@ -21,9 +21,9 @@ public class GameManager : MonoBehaviour
 
     private void Update() {
         // If player hits Esc, return to the main menu.
-        if (Input.GetKeyDown(KeyCode.Escape)) {
-            SceneManager.LoadScene(0); // MainMenu
-        }
+        //if (Input.GetKeyDown(KeyCode.Escape)) {
+        //    SceneManager.LoadScene(0); // MainMenu
+        //}
     }
 
     public void PlayerDied() {

@@ -34,7 +34,9 @@ public class Player : MonoBehaviour
     // Component references
     private Rigidbody2D _rb;
     private Collider2D _collider;
+    private GameManager _gameManager;
     private float _originalGravityScale;
+
 
     private void GetInputAndCalculateMoment() {
         Vector2 newVelocity = _rb.velocity;
@@ -70,6 +72,7 @@ public class Player : MonoBehaviour
         _numDoubleJumpsRemaining = _doubleJumps;
         _nextJumpTime = Time.time + _jumpCooldown;
         _originalGravityScale = _rb.gravityScale;
+        _gameManager = GameObject.Find("Game Manager").GetComponent<GameManager>();
     }
 
     private void Update() {
@@ -83,6 +86,13 @@ public class Player : MonoBehaviour
     public void FreezePlayer() {
         _rb.constraints = RigidbodyConstraints2D.FreezeAll;
     }
+
+    private void OnTriggerEnter2D(Collider2D other) {
+        if (other.gameObject.tag == "KillsPlayer") {
+            _gameManager.PlayerDied();
+        }
+    }
+
     private void UpdateGrounded() {
         float distance = _collider.bounds.extents.y + 0.1f;
         RaycastHit2D hit = Physics2D.BoxCast(_collider.bounds.center, _collider.bounds.size, 0f, Vector2.down, distance, _groundMask);
