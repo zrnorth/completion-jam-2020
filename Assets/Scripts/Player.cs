@@ -107,7 +107,7 @@ public class Player : MonoBehaviour
                 HitEnemy(other.gameObject.GetComponent<Enemy>());
                 return;
             case "Goal":
-                other.GetComponent<SceneTransitioner>().LoadNextScene();
+                other.GetComponent<SceneTransitioner>().LoadScene();
                 return;
             default: return;
         }

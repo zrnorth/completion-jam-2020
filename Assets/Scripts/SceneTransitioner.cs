@@ -16,9 +16,8 @@ public class SceneTransitioner : MonoBehaviour
     [SerializeField]
     private int _specifiedSceneIfNeeded = -1;
 
-    public void LoadNextScene()
+    public void LoadScene()
     {
-        Debug.Log("You win!");
         int currentSceneIdx = SceneManager.GetActiveScene().buildIndex;
 
         switch (type) {

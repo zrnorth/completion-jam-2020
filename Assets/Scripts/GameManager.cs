@@ -32,7 +32,7 @@ public class GameManager : MonoBehaviour
 
     public void PlayerDied() {
         // TODO: play animation and pause
-        _transition.LoadNextScene();
+        _transition.LoadScene();
     }
 
     public void CompletedLevel() {
@@ -43,6 +43,6 @@ public class GameManager : MonoBehaviour
     IEnumerator CompletedLevelCoroutine() {
         _player.FreezePlayer();
         yield return new WaitForSeconds(3f);
-        _transition.LoadNextScene();
+        _transition.LoadScene();
     }
 }

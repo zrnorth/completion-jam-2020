@@ -11,6 +11,7 @@ public class Enemy : MonoBehaviour
 
     private Rigidbody2D _rb;
     private BoxCollider2D _collider;
+    private GameManager _gameManager;
     bool _grounded = false;
     float _currSpeed;
 
@@ -18,6 +19,7 @@ public class Enemy : MonoBehaviour
         _rb = GetComponent<Rigidbody2D>();
         _collider = GetComponent<BoxCollider2D>();
         _currSpeed = 0f;
+        _gameManager = GameObject.Find("Game Manager").GetComponent<GameManager>();
     }
 
     private void Update() {
@@ -48,7 +50,14 @@ public class Enemy : MonoBehaviour
     public void Stomp() {
         // We got killed
         // Todo: play some anim here
-        GetComponent<Relay>().RelayLevel();
-        Destroy(gameObject);
+        // if we are a relay enemy, apply the effect and continue the game
+        Relay relay = GetComponent<Relay>();
+        if (relay != null) {
+            relay.RelayLevel();
+            Destroy(gameObject);
+            return;
+        }
+        // If we aren't a relay enemy, we lost the game
+        _gameManager.PlayerDied();
     }
 }
