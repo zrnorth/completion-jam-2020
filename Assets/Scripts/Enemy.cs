@@ -48,6 +48,7 @@ public class Enemy : MonoBehaviour
     public void Stomp() {
         // We got killed
         // Todo: play some anim here
+        GetComponent<Relay>().RelayLevel();
         Destroy(gameObject);
     }
 }

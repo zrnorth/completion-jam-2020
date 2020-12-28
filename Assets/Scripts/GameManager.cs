@@ -12,11 +12,15 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private Transform _playerSpawnPoint;
 
+    private SceneTransitioner _transition;
+
 
     // Start is called before the first frame update
     void Start() {
         // Place the player
         _player.transform.position = _playerSpawnPoint.position;
+
+        _transition = GetComponent<SceneTransitioner>();
     }
 
     private void Update() {
@@ -27,11 +31,8 @@ public class GameManager : MonoBehaviour
     }
 
     public void PlayerDied() {
-        _player.transform.position = _playerSpawnPoint.position;
-
-        // If we disable and reenable the player, we reset all physics and velocity values.
-        _player.gameObject.SetActive(false);
-        _player.gameObject.SetActive(true);
+        // TODO: play animation and pause
+        _transition.LoadNextScene();
     }
 
     public void CompletedLevel(int nextLevel) {
