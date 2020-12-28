@@ -35,13 +35,14 @@ public class GameManager : MonoBehaviour
         _transition.LoadNextScene();
     }
 
-    public void CompletedLevel(int nextLevel) {
-        StartCoroutine(CompletedLevelCoroutine(nextLevel));
+    public void CompletedLevel() {
+        // TODO: play a cool animation here
+        StartCoroutine(CompletedLevelCoroutine());
     }
 
-    IEnumerator CompletedLevelCoroutine(int nextLevel) {
+    IEnumerator CompletedLevelCoroutine() {
         _player.FreezePlayer();
         yield return new WaitForSeconds(3f);
-        SceneManager.LoadScene(nextLevel);
+        _transition.LoadNextScene();
     }
 }

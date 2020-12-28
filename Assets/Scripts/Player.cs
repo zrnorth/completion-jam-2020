@@ -43,16 +43,18 @@ public class Player : MonoBehaviour
     private void GetInputAndCalculateMoment() {
         bool isGrounded = _lastGroundedTime == GROUNDED || Time.time < _lastGroundedTime + _coyoteTime;
 
-        Vector2 newVelocity = _rb.velocity;
+        float newXVelocity = _rb.velocity.x;
         float horizInput = Input.GetAxisRaw("Horizontal");
         float horiz = isGrounded ? horizInput * _horizAcceleration : horizInput * _horizAccelerationAirborne;
-        newVelocity.x = Mathf.Clamp(newVelocity.x + horiz, -_maxHorizSpeed, _maxHorizSpeed);
+        newXVelocity = Mathf.Clamp(newXVelocity + horiz, -_maxHorizSpeed, _maxHorizSpeed);
+
+        _rb.velocity = new Vector2(newXVelocity, _rb.velocity.y);
+
 
         bool canJump = isGrounded || _numDoubleJumpsRemaining > 0;
 
         if (Input.GetKeyDown(KeyCode.Space) && Time.time > _nextJumpTime && canJump) {
-            newVelocity.y = _jumpForce;
-            _nextJumpTime = Time.time + _jumpCooldown;
+            Jump();
             if (!isGrounded) {
                 _numDoubleJumpsRemaining--;
             }
@@ -65,7 +67,11 @@ public class Player : MonoBehaviour
         } else {
             _rb.gravityScale = _originalGravityScale;
         }
-        _rb.velocity = newVelocity;
+    }
+
+    private void Jump() {
+        _rb.velocity = new Vector2(_rb.velocity.x, _jumpForce);
+        _nextJumpTime = Time.time + _jumpCooldown;
     }
 
     private void Start() {
@@ -110,9 +116,8 @@ public class Player : MonoBehaviour
     private void HitEnemy(Enemy enemy) {
         // Check if we stomped the enemy. 
         float verticalHeightAboveEnemy = transform.position.y - enemy.transform.position.y;
-        Debug.Log("height above: " + verticalHeightAboveEnemy);
-        Debug.Log("bounds: " + _collider.bounds.extents.y);
         if (verticalHeightAboveEnemy > _collider.bounds.extents.y) {
+            Jump();
             enemy.Stomp();
         } else {
             _gameManager.PlayerDied();
