@@ -23,6 +23,8 @@ public class Player : MonoBehaviour
     private float _jumpCooldown = 0.1f;
     [SerializeField]
     private float _coyoteTime = 0.1f;
+    [SerializeField]
+    private LayerMask _groundMask;
 
     // State vars
     private int _numDoubleJumpsRemaining;
@@ -78,25 +80,19 @@ public class Player : MonoBehaviour
         UpdateGrounded();
     }
 
-    private void OnCollisionEnter2D(Collision2D other) {
-        if (other.transform.tag == "Platform" && _rb.velocity.y <= 0) {
-            _numDoubleJumpsRemaining = _doubleJumps;
-        }
-    }
-
     public void FreezePlayer() {
         _rb.constraints = RigidbodyConstraints2D.FreezeAll;
     }
-
     private void UpdateGrounded() {
         float distance = _collider.bounds.extents.y + 0.1f;
-        // TODO: do two raycasts at each x bound instead of one at the center
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector3.down, distance);
-
-        if (_lastGroundedTime == GROUNDED && hit.collider == null) {
-            _lastGroundedTime = Time.time;
-        } else if (_lastGroundedTime != GROUNDED && hit.collider != null) {
+        RaycastHit2D hit = Physics2D.BoxCast(_collider.bounds.center, _collider.bounds.size, 0f, Vector2.down, distance, _groundMask);
+        if (hit.collider != null) {
             _lastGroundedTime = GROUNDED;
+            _numDoubleJumpsRemaining = _doubleJumps;
+        } else {
+            if (_lastGroundedTime == GROUNDED) { // if we just jumped, set the current time to the last grounded time
+                _lastGroundedTime = Time.time;
+            }
         }
     }
 }

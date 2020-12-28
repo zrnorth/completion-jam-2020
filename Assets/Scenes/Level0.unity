@@ -135,8 +135,8 @@ GameObject:
   - component: {fileID: 2183866}
   - component: {fileID: 2183868}
   - component: {fileID: 2183867}
-  m_Layer: 0
-  m_Name: Tilemap
+  m_Layer: 8
+  m_Name: Ground Tilemap
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2210,7 +2210,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2183862}
-  m_BodyType: 1
+  m_BodyType: 2
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -2362,6 +2362,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 2742909327289246980, guid: 76da16912254f564481f62cdffe7ea7f,
+        type: 3}
+      propertyPath: _ground
+      value: 
+      objectReference: {fileID: 2183866}
     - target: {fileID: 2742909327289246981, guid: 76da16912254f564481f62cdffe7ea7f,
         type: 3}
       propertyPath: m_RootOrder
