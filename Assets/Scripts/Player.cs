@@ -36,8 +36,22 @@ public class Player : MonoBehaviour
     // Component references
     private Rigidbody2D _rb;
     private Collider2D _collider;
+    private Animator _anim;
     private GameManager _gameManager;
     private float _originalGravityScale;
+
+    private void Start() {
+        _rb = GetComponent<Rigidbody2D>();
+        _collider = GetComponent<BoxCollider2D>();
+        _anim = GetComponent<Animator>();
+        if (!_collider) {
+            _collider = GetComponent<CircleCollider2D>();
+        }
+        _numDoubleJumpsRemaining = _doubleJumps;
+        _nextJumpTime = Time.time + _jumpCooldown;
+        _originalGravityScale = _rb.gravityScale;
+        _gameManager = GameObject.Find("Game Manager").GetComponent<GameManager>();
+    }
 
 
     private void GetInputAndCalculateMoment() {
@@ -62,7 +76,7 @@ public class Player : MonoBehaviour
         // Reduce gravity while jump is held, so that the player can more
         // granularly choose how high to jump.
         if (Input.GetKey(KeyCode.Space) && _rb.velocity.y > 0f) {
-            
+
             _rb.gravityScale = _originalGravityScale / _jumpingGravityReduction;
         } else {
             _rb.gravityScale = _originalGravityScale;
@@ -74,20 +88,11 @@ public class Player : MonoBehaviour
         _nextJumpTime = Time.time + _jumpCooldown;
     }
 
-    private void Start() {
-        _rb = GetComponent<Rigidbody2D>();
-        _collider = GetComponent<BoxCollider2D>();
-        if (!_collider) {
-            _collider = GetComponent<CircleCollider2D>();
-        }
-        _numDoubleJumpsRemaining = _doubleJumps;
-        _nextJumpTime = Time.time + _jumpCooldown;
-        _originalGravityScale = _rb.gravityScale;
-        _gameManager = GameObject.Find("Game Manager").GetComponent<GameManager>();
-    }
+
 
     private void Update() {
         GetInputAndCalculateMoment();
+        _anim.SetFloat("Horizontal Speed", _rb.velocity.x);
     }
 
     private void FixedUpdate() {
