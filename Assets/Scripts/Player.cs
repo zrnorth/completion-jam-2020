@@ -12,6 +12,8 @@ public class Player : MonoBehaviour
     [SerializeField]
     private float _horizAcceleration = 5f;
     [SerializeField]
+    private float _horizAccelerationAirborne = 2f;
+    [SerializeField]
     private float _maxHorizSpeed = 90f;
     [SerializeField]
     private float _jumpForce = 2000f;
@@ -39,15 +41,17 @@ public class Player : MonoBehaviour
 
 
     private void GetInputAndCalculateMoment() {
-        Vector2 newVelocity = _rb.velocity;
-        float horiz = Input.GetAxisRaw("Horizontal");
-        newVelocity.x = Mathf.Clamp(newVelocity.x + horiz * _horizAcceleration, -_maxHorizSpeed, _maxHorizSpeed);
-
         bool isGrounded = _lastGroundedTime == GROUNDED || Time.time < _lastGroundedTime + _coyoteTime;
+
+        Vector2 newVelocity = _rb.velocity;
+        float horizInput = Input.GetAxisRaw("Horizontal");
+        float horiz = isGrounded ? horizInput * _horizAcceleration : horizInput * _horizAccelerationAirborne;
+        newVelocity.x = Mathf.Clamp(newVelocity.x + horiz, -_maxHorizSpeed, _maxHorizSpeed);
+
         bool canJump = isGrounded || _numDoubleJumpsRemaining > 0;
 
         if (Input.GetKeyDown(KeyCode.Space) && Time.time > _nextJumpTime && canJump) {
-            newVelocity.y = Mathf.Min(newVelocity.y + _jumpForce, _jumpForce * 1f);
+            newVelocity.y = _jumpForce;
             _nextJumpTime = Time.time + _jumpCooldown;
             if (!isGrounded) {
                 _numDoubleJumpsRemaining--;
