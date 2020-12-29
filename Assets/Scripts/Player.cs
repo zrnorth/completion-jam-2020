@@ -123,6 +123,7 @@ public class Player : MonoBehaviour
         float verticalHeightAboveEnemy = transform.position.y - enemy.transform.position.y;
         if (verticalHeightAboveEnemy > _collider.bounds.extents.y) {
             Jump();
+            _anim.SetTrigger("Stomped");
             enemy.Stomp();
         } else {
             _gameManager.PlayerDied();
