@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour
     private Transform _playerSpawnPoint;
 
     private SceneTransitioner _transition;
+    private Coroutine _slowDownTimeCoroutine;
 
 
     // Start is called before the first frame update
@@ -32,11 +33,20 @@ public class GameManager : MonoBehaviour
 
     public void PlayerDied() {
         // TODO: play animation and pause
+        Time.timeScale = 1f;
+        if (_slowDownTimeCoroutine != null) {
+            StopCoroutine(_slowDownTimeCoroutine);
+        }
+
         _transition.LoadScene();
     }
 
     public void CompletedLevel() {
         // TODO: play a cool animation here
+        Time.timeScale = 1f;
+        if (_slowDownTimeCoroutine != null) {
+            StopCoroutine(_slowDownTimeCoroutine);
+        }
         StartCoroutine(CompletedLevelCoroutine());
     }
 
@@ -44,5 +54,27 @@ public class GameManager : MonoBehaviour
         _player.FreezePlayer();
         yield return new WaitForSeconds(3f);
         _transition.LoadScene();
+    }
+
+    public void SlowDownTime() {
+        _slowDownTimeCoroutine = StartCoroutine(RelayEffectSlowDownTime());
+    }
+
+    // This effect is caused by the SlowDownTime relay. It gradually slows the game down until 0, then player dies.
+    public IEnumerator RelayEffectSlowDownTime() {
+        Time.timeScale = 0.8f;
+        yield return new WaitForSecondsRealtime(2.5f);
+        Time.timeScale = 0.6f;
+        yield return new WaitForSecondsRealtime(2f);
+        Time.timeScale = 0.4f;
+        yield return new WaitForSecondsRealtime(2f);
+        Time.timeScale = 0.2f;
+        yield return new WaitForSecondsRealtime(2f);
+        Time.timeScale = 0.1f;
+        yield return new WaitForSecondsRealtime(1.5f);
+        Time.timeScale = 0.0f;
+        yield return new WaitForSecondsRealtime(1.5f);
+        Time.timeScale = 1.0f;
+        PlayerDied();
     }
 }

@@ -951,7 +951,7 @@ PrefabInstance:
     - target: {fileID: 9189672670467273170, guid: e6b0357ad93900e4fa4c6b317b0dea8b,
         type: 3}
       propertyPath: _effect
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 9189672670467273170, guid: e6b0357ad93900e4fa4c6b317b0dea8b,
         type: 3}
@@ -963,6 +963,11 @@ PrefabInstance:
       propertyPath: _levelGrid
       value: 
       objectReference: {fileID: 545523384}
+    - target: {fileID: 9189672670467273170, guid: e6b0357ad93900e4fa4c6b317b0dea8b,
+        type: 3}
+      propertyPath: _gameManager
+      value: 
+      objectReference: {fileID: 1607474614}
     - target: {fileID: 9189672670467273170, guid: e6b0357ad93900e4fa4c6b317b0dea8b,
         type: 3}
       propertyPath: _enemiesContainer
@@ -1114,6 +1119,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1450806458}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1607474614 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1232463731932836971, guid: a5d5c2927576a0840b5996eca79c6c01,
+    type: 3}
+  m_PrefabInstance: {fileID: 130797315}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1de853a0b17e9d4182a901a89c7f7b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1840017870
 GameObject:
   m_ObjectHideFlags: 0
