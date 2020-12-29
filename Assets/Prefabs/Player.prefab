@@ -159,6 +159,9 @@ MonoBehaviour:
     m_Bits: 256
   _extraBouncyMat: {fileID: 6200000, guid: 4f3cd4ee8759f234da039cddb16d63b7, type: 2}
   _deathSprite: {fileID: 21300000, guid: 8c8a930e196b56a45b2317c8f8b4a07d, type: 3}
+  _jumpAudio: {fileID: 8300000, guid: 0d74ed59ee1af8240a6a26b5f61d45a3, type: 3}
+  _stompAudio: {fileID: 8300000, guid: 9366466025d57fe4e8d9c4d84ae40928, type: 3}
+  _deathAudio: {fileID: 8300000, guid: 19a311e733eb00f4d862286dfc6d5e02, type: 3}
 --- !u!61 &1961911747
 BoxCollider2D:
   m_ObjectHideFlags: 0

@@ -31,6 +31,8 @@ public class Player : MonoBehaviour
     private PhysicsMaterial2D _extraBouncyMat;
     [SerializeField]
     private Sprite _deathSprite;
+    [SerializeField]
+    private AudioClip _jumpAudio, _stompAudio, _deathAudio;
 
     // State vars
     private int _numDoubleJumpsRemaining;
@@ -46,6 +48,7 @@ public class Player : MonoBehaviour
     private PhysicsMaterial2D _originalMat;
     private SpriteRenderer _renderer;
     private float _originalGravityScale;
+    private bool _dead = false;
 
     public void SetGroundMask(LayerMask layerMask) {
         _groundMask = layerMask;
@@ -77,7 +80,7 @@ public class Player : MonoBehaviour
         bool canJump = isGrounded || _numDoubleJumpsRemaining > 0;
 
         if (JumpInputThisFrame() && Time.time > _nextJumpTime && canJump) {
-            Jump();
+            Jump(true);
             if (!isGrounded) {
                 _numDoubleJumpsRemaining--;
             }
@@ -92,7 +95,11 @@ public class Player : MonoBehaviour
         }
     }
 
-    private void Jump() {
+    private void Jump(bool playJumpAudio) {
+        if (playJumpAudio) {
+            AudioSource.PlayClipAtPoint(_jumpAudio, transform.position);
+        }
+        if (_dead) return;
         _rb.velocity = new Vector2(_rb.velocity.x, _jumpForce);
         _nextJumpTime = Time.time + _jumpCooldown;
     }
@@ -120,6 +127,7 @@ public class Player : MonoBehaviour
                 return;
             case "Goal":
                 other.GetComponent<SceneTransitioner>().LoadScene();
+                FreezePlayer();
                 return;
             default: return;
         }
@@ -134,7 +142,8 @@ public class Player : MonoBehaviour
         // Check if we stomped the enemy. 
         float verticalHeightAboveEnemy = transform.position.y - enemy.transform.position.y;
         if (verticalHeightAboveEnemy > _colliders[0].bounds.extents.y) {
-            Jump();
+            Jump(false);
+            AudioSource.PlayClipAtPoint(_stompAudio, transform.position);
             _anim.SetTrigger("Stomped");
             enemy.Stomp();
             // if we stomped an enemy we shouldn't we lose.
@@ -149,12 +158,13 @@ public class Player : MonoBehaviour
     }
 
     private void Die() {
-        // TODO Play the right sound
+        _dead = true;
         // turn off animations and switch the sprite to the dead player
         _anim.enabled = false;
         _renderer.sprite = _deathSprite;
         // Give a jump so we pop up in the air, and disable collisions so we fall off screen
-        Jump();
+        AudioSource.PlayClipAtPoint(_deathAudio, transform.position);
+        Jump(false);
         foreach (Collider2D col in _colliders) {
             col.enabled = false;
         }
@@ -173,6 +183,10 @@ public class Player : MonoBehaviour
             if (_lastGroundedTime == GROUNDED) { // if we just jumped, set the current time to the last grounded time
                 _lastGroundedTime = Time.time;
                 _anim.SetBool("Grounded", false);
+                // If we are set to bouncy mode, set the bounce sound to play now to give the effect desired
+                if (_rb.sharedMaterial == _extraBouncyMat) {
+                    AudioSource.PlayClipAtPoint(_jumpAudio, transform.position);
+                }
             }
         }
     }

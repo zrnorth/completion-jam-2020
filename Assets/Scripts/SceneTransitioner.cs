@@ -15,24 +15,32 @@ public class SceneTransitioner : MonoBehaviour
     private Type type;
     [SerializeField]
     private int _specifiedSceneIfNeeded = -1;
+    [SerializeField]
+    private AudioClip _transitionClip;
 
     public void LoadScene() {
         Time.timeScale = 1f;
         int currentSceneIdx = SceneManager.GetActiveScene().buildIndex;
-
         switch (type) {
             case Type.ReloadScene:
-                SceneManager.LoadScene(currentSceneIdx);
+                StartCoroutine(LoadSceneAfterClipFinishes(currentSceneIdx));
                 return;
             case Type.LoadNextScene:
-                SceneManager.LoadScene(currentSceneIdx + 1);
+                StartCoroutine(LoadSceneAfterClipFinishes(currentSceneIdx + 1));
                 return;
             case Type.LoadSpecifiedScene:
-                SceneManager.LoadScene(_specifiedSceneIfNeeded);
+                StartCoroutine(LoadSceneAfterClipFinishes(_specifiedSceneIfNeeded));
                 return;
             default:
                 return;
-
         }
+    }
+
+    private IEnumerator LoadSceneAfterClipFinishes(int scene) {
+        if (_transitionClip != null) {
+            AudioSource.PlayClipAtPoint(_transitionClip, transform.position);
+            yield return new WaitForSeconds(0.75f); // Hack here
+        }
+        SceneManager.LoadScene(scene);
     }
 }
