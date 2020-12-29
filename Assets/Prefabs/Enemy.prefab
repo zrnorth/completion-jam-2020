@@ -150,6 +150,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   _playerCanTouch: 1
+  _frozenSprite: {fileID: 21300000, guid: 9eeb8c470ef169446bb07ef18021b77b, type: 3}
 --- !u!95 &398846017
 Animator:
   serializedVersion: 3

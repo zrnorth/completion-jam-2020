@@ -10,11 +10,13 @@ public class Enemy : MonoBehaviour
     private LayerMask _groundMask;
     [SerializeField]
     private bool _playerCanTouch;
+    [SerializeField]
+    private Sprite _frozenSprite;
 
     private Rigidbody2D _rb;
     private BoxCollider2D _collider;
     private Animator _anim;
-    private GameManager _gameManager;
+    private SpriteRenderer _renderer;
     bool _grounded = false;
     float _currSpeed;
 
@@ -22,8 +24,8 @@ public class Enemy : MonoBehaviour
         _rb = GetComponent<Rigidbody2D>();
         _collider = GetComponent<BoxCollider2D>();
         _anim = GetComponent<Animator>();
+        _renderer = GetComponent<SpriteRenderer>();
         _currSpeed = 0f;
-        _gameManager = GameObject.Find("Game Manager").GetComponent<GameManager>();
     }
 
     public bool GetPlayerCanTouch() {
@@ -80,6 +82,12 @@ public class Enemy : MonoBehaviour
         _currSpeed *= 2;
         _speed *= 2;
         _anim.speed *= 2;
+    }
+
+    public void Freeze() {
+        _rb.bodyType = RigidbodyType2D.Static;
+        _anim.enabled = false;
+        _renderer.sprite = _frozenSprite;
     }
 
 }

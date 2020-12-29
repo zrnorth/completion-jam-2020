@@ -82,9 +82,9 @@ public class Relay : MonoBehaviour
     private void TurnCivsIntoPlatforms() {
         // First, delete the platform part of the map
         _levelGrid.transform.Find("Ground Tilemap").gameObject.SetActive(false);
-        // Next, iterate every enemy, turn them gray, and freeze them in place
+        // Next, iterate every enemy and freeze them in place
         foreach (Transform childTransform in _enemiesContainer.transform) {
-            childTransform.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
+            childTransform.GetComponent<Enemy>().Freeze();
         }
         // Finally, update the player's Grounded function to look for enemies instead of ground tiles
         _player.SetGroundMask(LayerMask.GetMask("Enemies"));

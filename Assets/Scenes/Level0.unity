@@ -4712,6 +4712,11 @@ PrefabInstance:
       objectReference: {fileID: 1124622290}
     - target: {fileID: 9189672670467273170, guid: e6b0357ad93900e4fa4c6b317b0dea8b,
         type: 3}
+      propertyPath: _effect
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9189672670467273170, guid: e6b0357ad93900e4fa4c6b317b0dea8b,
+        type: 3}
       propertyPath: _levelGrid
       value: 
       objectReference: {fileID: 2019524696}
@@ -4779,10 +4784,31 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 469528496631564882, guid: 1290fe1c56e4afd4f8e93426098f6831,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 469528496631564882, guid: 1290fe1c56e4afd4f8e93426098f6831,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 469528496631564882, guid: 1290fe1c56e4afd4f8e93426098f6831,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 469528496631564885, guid: 1290fe1c56e4afd4f8e93426098f6831,
         type: 3}
       propertyPath: m_Name
       value: Enemy
       objectReference: {fileID: 0}
+    - target: {fileID: 7980796994009173957, guid: 1290fe1c56e4afd4f8e93426098f6831,
+        type: 3}
+      propertyPath: _frozenSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 9eeb8c470ef169446bb07ef18021b77b,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1290fe1c56e4afd4f8e93426098f6831, type: 3}
