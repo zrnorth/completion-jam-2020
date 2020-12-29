@@ -146,10 +146,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 811aa2e851676db47bbb543eb782e65e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _horizAcceleration: 4
-  _horizAccelerationAirborne: 2
-  _maxHorizSpeed: 15
-  _jumpForce: 25
+  _horizAcceleration: 3
+  _horizAccelerationAirborne: 1.5
+  _maxHorizSpeed: 14
+  _jumpForce: 23
   _jumpingGravityReduction: 2
   _doubleJumps: 1
   _jumpCooldown: 0.1

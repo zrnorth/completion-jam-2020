@@ -44,6 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1de853a0b17e9d4182a901a89c7f7b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _deathDelay: 1
   _player: {fileID: 0}
   _playerSpawnPoint: {fileID: 0}
 --- !u!114 &1232463731932836973
@@ -60,3 +61,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 0
   _specifiedSceneIfNeeded: -1
+  _transitionClip: {fileID: 0}

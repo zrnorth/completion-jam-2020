@@ -19,7 +19,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &6029447539055076180
 Transform:
   m_ObjectHideFlags: 0
@@ -48,6 +48,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 0
   _specifiedSceneIfNeeded: -1
+  _transitionClip: {fileID: 8300000, guid: 0529d162ac416734e8ee93b973214bbb, type: 3}
 --- !u!58 &1124622291
 CircleCollider2D:
   m_ObjectHideFlags: 0
