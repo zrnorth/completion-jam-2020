@@ -2558,7 +2558,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
+  m_BackGroundColor: {r: 0.16862746, g: 0.15686275, b: 0.12941177, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -4670,13 +4670,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7513522855441906300, guid: e6b0357ad93900e4fa4c6b317b0dea8b,
         type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 2507203761958103942, guid: 3336904f90296e646a3f6451e66f9073,
+        type: 3}
+    - target: {fileID: 7513522855441906300, guid: e6b0357ad93900e4fa4c6b317b0dea8b,
+        type: 3}
       propertyPath: m_Color.b
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7513522855441906300, guid: e6b0357ad93900e4fa4c6b317b0dea8b,
         type: 3}
       propertyPath: m_Color.g
-      value: 0.45098042
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7513522855441906300, guid: e6b0357ad93900e4fa4c6b317b0dea8b,
         type: 3}
@@ -4816,6 +4822,27 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 469528496631564882, guid: 1290fe1c56e4afd4f8e93426098f6831,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 5301221743481788391, guid: 7500097add641c14c9a7e6fd31b9c12c,
+        type: 3}
+    - target: {fileID: 469528496631564882, guid: 1290fe1c56e4afd4f8e93426098f6831,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 469528496631564882, guid: 1290fe1c56e4afd4f8e93426098f6831,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 469528496631564882, guid: 1290fe1c56e4afd4f8e93426098f6831,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 469528496631564885, guid: 1290fe1c56e4afd4f8e93426098f6831,
         type: 3}

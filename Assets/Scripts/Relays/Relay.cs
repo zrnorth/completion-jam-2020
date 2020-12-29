@@ -20,9 +20,10 @@ public class Relay : MonoBehaviour
     private Grid _levelGrid;
 
     private void Start() {
-        ColorBasedOnEffect();
+        //ColorBasedOnEffect();
     }
 
+    /*
     private void ColorBasedOnEffect() {
         // Based on the relay type, we color the sprite this is attached to (if it exists)
         SpriteRenderer renderer = GetComponent<SpriteRenderer>();
@@ -40,13 +41,12 @@ public class Relay : MonoBehaviour
             }
             renderer.color = color;
         }
-    }
+    }*/
 
     public void RelayLevel() {
         _goal.SetActive(true);
         switch (_effect) {
             case Effect.InvertMap:
-                // TODO swap out the palettes
                 InvertMap();
                 return;
             case Effect.None:
