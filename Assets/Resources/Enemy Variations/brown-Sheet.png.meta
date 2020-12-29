@@ -1,34 +1,34 @@
 fileFormatVersion: 2
-guid: 2945835b0e1864c4e8559ae645280f10
+guid: 477b2dc32dbd2ba4b92bf6fdae1fbb2b
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -2888137631141996233
-    second: turq-Sheet_0
+      213: -8162854952165362060
+    second: idle
   - first:
-      213: -8595862427058852386
-    second: turq-Sheet_1
+      213: -5859532859314191067
+    second: left_walk_0
   - first:
-      213: -226191567791018080
-    second: turq-Sheet_2
+      213: -4015884117397165234
+    second: left_walk_1
   - first:
-      213: -469486689012443914
-    second: turq-Sheet_3
+      213: -1406728567189387827
+    second: left_walk_2
   - first:
-      213: 2808704883772914781
-    second: turq-Sheet_4
+      213: -2058153906386796055
+    second: left_walk_3
   - first:
-      213: -387337133318426988
-    second: turq-Sheet_5
+      213: 6448997271195456681
+    second: right_walk_0
   - first:
-      213: 6919073710100814785
-    second: turq-Sheet_6
+      213: -3603635518129610087
+    second: right_walk_1
   - first:
-      213: 7967201008166554651
-    second: turq-Sheet_7
+      213: 2375774764624657651
+    second: right_walk_2
   - first:
-      213: 467158370273604439
-    second: turq-Sheet_8
+      213: -2278657322115229373
+    second: right_walk_3
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -138,7 +138,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: turq-Sheet_0
+      name: idle
       rect:
         serializedVersion: 2
         x: 0
@@ -146,20 +146,20 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 739d75160264be7d0800000000000000
-      internalID: -2888137631141996233
+      spriteID: 476352f6ba6b7be80800000000000000
+      internalID: -8162854952165362060
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: turq-Sheet_1
+      name: left_walk_0
       rect:
         serializedVersion: 2
         x: 16
@@ -167,20 +167,20 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: edda7095aac55b880800000000000000
-      internalID: -8595862427058852386
+      spriteID: 52549dad8e1ceaea0800000000000000
+      internalID: -5859532859314191067
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: turq-Sheet_2
+      name: left_walk_1
       rect:
         serializedVersion: 2
         x: 32
@@ -188,20 +188,20 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0afa0aea7f76cdcf0800000000000000
-      internalID: -226191567791018080
+      spriteID: e4ba86b1ca6b448c0800000000000000
+      internalID: -4015884117397165234
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: turq-Sheet_3
+      name: left_walk_2
       rect:
         serializedVersion: 2
         x: 48
@@ -209,20 +209,20 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6f493a2085c0c79f0800000000000000
-      internalID: -469486689012443914
+      spriteID: dc5484142db4a7ce0800000000000000
+      internalID: -1406728567189387827
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: turq-Sheet_4
+      name: left_walk_3
       rect:
         serializedVersion: 2
         x: 64
@@ -230,20 +230,20 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d5c703ce5368af620800000000000000
-      internalID: 2808704883772914781
+      spriteID: 9e18bbc3de7ff63e0800000000000000
+      internalID: -2058153906386796055
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: turq-Sheet_5
+      name: right_walk_0
       rect:
         serializedVersion: 2
         x: 80
@@ -251,20 +251,20 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 49eac30fde6ef9af0800000000000000
-      internalID: -387337133318426988
+      spriteID: 9a4911399d07f7950800000000000000
+      internalID: 6448997271195456681
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: turq-Sheet_6
+      name: right_walk_1
       rect:
         serializedVersion: 2
         x: 96
@@ -272,20 +272,20 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1cb9d4961ec750060800000000000000
-      internalID: 6919073710100814785
+      spriteID: 99267e1d6905dfdc0800000000000000
+      internalID: -3603635518129610087
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: turq-Sheet_7
+      name: right_walk_2
       rect:
         serializedVersion: 2
         x: 112
@@ -293,20 +293,20 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b1cc6e9da1f219e60800000000000000
-      internalID: 7967201008166554651
+      spriteID: 3fc3acf9f8278f020800000000000000
+      internalID: 2375774764624657651
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: turq-Sheet_8
+      name: right_walk_3
       rect:
         serializedVersion: 2
         x: 128
@@ -314,14 +314,14 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 753320a001eab7600800000000000000
-      internalID: 467158370273604439
+      spriteID: 3499a760d359060e0800000000000000
+      internalID: -2278657322115229373
       vertices: []
       indices: 
       edges: []

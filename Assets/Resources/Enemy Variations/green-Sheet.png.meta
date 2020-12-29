@@ -1,34 +1,34 @@
 fileFormatVersion: 2
-guid: 864e96523f6130c409b957fb92837c36
+guid: 69e20193e14f2be40b1d0ee9b2e422f3
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 5881815511531164096
-    second: red-Sheet_0
+      213: 8977127992581507230
+    second: idle
   - first:
-      213: 8106819195665231313
-    second: red-Sheet_1
+      213: 4664345143400772288
+    second: left_walk_0
   - first:
-      213: -132031386596852847
-    second: red-Sheet_2
+      213: -3910998025621130771
+    second: left_walk_1
   - first:
-      213: -2455831266282403155
-    second: red-Sheet_3
+      213: 5184086714275797597
+    second: left_walk_2
   - first:
-      213: 3801357552670137258
-    second: red-Sheet_4
+      213: 4676207262927117830
+    second: left_walk_3
   - first:
-      213: 6727428872499243374
-    second: red-Sheet_5
+      213: -3943634471501151529
+    second: right_walk_0
   - first:
-      213: 848987487725614733
-    second: red-Sheet_6
+      213: 4196620248631497411
+    second: right_walk_1
   - first:
-      213: -7465532024405169108
-    second: red-Sheet_7
+      213: 3052752785603090297
+    second: right_walk_2
   - first:
-      213: -348369239726271144
-    second: red-Sheet_8
+      213: -8922176375048565936
+    second: right_walk_3
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -138,7 +138,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: red-Sheet_0
+      name: idle
       rect:
         serializedVersion: 2
         x: 0
@@ -146,20 +146,20 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0c192376b0860a150800000000000000
-      internalID: 5881815511531164096
+      spriteID: e98490da85a259c70800000000000000
+      internalID: 8977127992581507230
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: red-Sheet_1
+      name: left_walk_0
       rect:
         serializedVersion: 2
         x: 16
@@ -167,20 +167,20 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1dda1ff4b15318070800000000000000
-      internalID: 8106819195665231313
+      spriteID: 0c2b836f1351bb040800000000000000
+      internalID: 4664345143400772288
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: red-Sheet_2
+      name: left_walk_1
       rect:
         serializedVersion: 2
         x: 32
@@ -188,20 +188,20 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 19b31b6472eea2ef0800000000000000
-      internalID: -132031386596852847
+      spriteID: de1399d540859b9c0800000000000000
+      internalID: -3910998025621130771
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: red-Sheet_3
+      name: left_walk_2
       rect:
         serializedVersion: 2
         x: 48
@@ -209,20 +209,20 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: daa80f099722bedd0800000000000000
-      internalID: -2455831266282403155
+      spriteID: d5a1b31766391f740800000000000000
+      internalID: 5184086714275797597
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: red-Sheet_4
+      name: left_walk_3
       rect:
         serializedVersion: 2
         x: 64
@@ -230,20 +230,20 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: aabd62fbd8221c430800000000000000
-      internalID: 3801357552670137258
+      spriteID: 60e5fd2eab935e040800000000000000
+      internalID: 4676207262927117830
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: red-Sheet_5
+      name: right_walk_0
       rect:
         serializedVersion: 2
         x: 80
@@ -251,20 +251,20 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e6926058ae0ac5d50800000000000000
-      internalID: 6727428872499243374
+      spriteID: 7d2403aa7556549c0800000000000000
+      internalID: -3943634471501151529
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: red-Sheet_6
+      name: right_walk_1
       rect:
         serializedVersion: 2
         x: 96
@@ -272,20 +272,20 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d86f2a83f9538cb00800000000000000
-      internalID: 848987487725614733
+      spriteID: 3c254e8a1e36d3a30800000000000000
+      internalID: 4196620248631497411
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: red-Sheet_7
+      name: right_walk_2
       rect:
         serializedVersion: 2
         x: 112
@@ -293,20 +293,20 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c2ce60a8d2a156890800000000000000
-      internalID: -7465532024405169108
+      spriteID: 977d4fcfb7e8d5a20800000000000000
+      internalID: 3052752785603090297
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: red-Sheet_8
+      name: right_walk_3
       rect:
         serializedVersion: 2
         x: 128
@@ -314,14 +314,14 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 855517fa5085a2bf0800000000000000
-      internalID: -348369239726271144
+      spriteID: 05b09ddcbdf0e2480800000000000000
+      internalID: -8922176375048565936
       vertices: []
       indices: 
       edges: []

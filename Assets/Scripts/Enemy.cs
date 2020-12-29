@@ -11,6 +11,7 @@ public class Enemy : MonoBehaviour
 
     private Rigidbody2D _rb;
     private BoxCollider2D _collider;
+    private Animator _anim;
     private GameManager _gameManager;
     bool _grounded = false;
     float _currSpeed;
@@ -18,6 +19,7 @@ public class Enemy : MonoBehaviour
     private void Start() {
         _rb = GetComponent<Rigidbody2D>();
         _collider = GetComponent<BoxCollider2D>();
+        _anim = GetComponent<Animator>();
         _currSpeed = 0f;
         _gameManager = GameObject.Find("Game Manager").GetComponent<GameManager>();
     }
@@ -27,6 +29,7 @@ public class Enemy : MonoBehaviour
         Vector2 vel = _rb.velocity;
         vel.x = _currSpeed;
         _rb.velocity = vel;
+        _anim.SetFloat("Horizontal Speed", vel.x);
     }
     private void UpdateGroundedAndMaybeChangeDirection() {
         // Check a small bit in front of us (or under our feet if we aren't moving)

@@ -1,34 +1,34 @@
 fileFormatVersion: 2
-guid: 7500097add641c14c9a7e6fd31b9c12c
+guid: 3336904f90296e646a3f6451e66f9073
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -2921645552552362011
-    second: underwear-Sheet_0
+      213: 7318828960167160762
+    second: idle
   - first:
-      213: 5301221743481788391
-    second: underwear-Sheet_1
+      213: 2507203761958103942
+    second: left_walk_0
   - first:
-      213: 188433274477410298
-    second: underwear-Sheet_2
+      213: -4384331001011573114
+    second: left_walk_1
   - first:
-      213: 3031177873817073310
-    second: underwear-Sheet_3
+      213: 7064702759154171694
+    second: left_walk_2
   - first:
-      213: 8211814525312089725
-    second: underwear-Sheet_4
+      213: -2351724079021427454
+    second: left_walk_3
   - first:
-      213: 5923477974167567104
-    second: underwear-Sheet_5
+      213: -7278424980479501393
+    second: right_walk_0
   - first:
-      213: -2784490386705546671
-    second: underwear-Sheet_6
+      213: -1295165846424427412
+    second: right_walk_1
   - first:
-      213: 8845388869558838740
-    second: underwear-Sheet_7
+      213: -7375758374304505494
+    second: right_walk_2
   - first:
-      213: -8032825432563098137
-    second: underwear-Sheet_8
+      213: 7651848983459188017
+    second: right_walk_3
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -138,7 +138,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: underwear-Sheet_0
+      name: idle
       rect:
         serializedVersion: 2
         x: 0
@@ -146,20 +146,20 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5ef348879da3477d0800000000000000
-      internalID: -2921645552552362011
+      spriteID: abbea969924b19560800000000000000
+      internalID: 7318828960167160762
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: underwear-Sheet_1
+      name: left_walk_0
       rect:
         serializedVersion: 2
         x: 16
@@ -167,20 +167,20 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7e71fcfa619b19940800000000000000
-      internalID: 5301221743481788391
+      spriteID: 68b290ba9806bc220800000000000000
+      internalID: 2507203761958103942
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: underwear-Sheet_2
+      name: left_walk_1
       rect:
         serializedVersion: 2
         x: 32
@@ -188,20 +188,20 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: af7f61590137d9200800000000000000
-      internalID: 188433274477410298
+      spriteID: 68ee8fa0f2ab723c0800000000000000
+      internalID: -4384331001011573114
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: underwear-Sheet_3
+      name: left_walk_2
       rect:
         serializedVersion: 2
         x: 48
@@ -209,20 +209,20 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e96f3e36738e01a20800000000000000
-      internalID: 3031177873817073310
+      spriteID: e2f3b13aabdda0260800000000000000
+      internalID: 7064702759154171694
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: underwear-Sheet_4
+      name: left_walk_3
       rect:
         serializedVersion: 2
         x: 64
@@ -230,20 +230,20 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d7ebe9e7dc936f170800000000000000
-      internalID: 8211814525312089725
+      spriteID: 205f13cf86ffc5fd0800000000000000
+      internalID: -2351724079021427454
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: underwear-Sheet_5
+      name: right_walk_0
       rect:
         serializedVersion: 2
         x: 80
@@ -251,20 +251,20 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 00bbb1565db643250800000000000000
-      internalID: 5923477974167567104
+      spriteID: fab90320b07ddfa90800000000000000
+      internalID: -7278424980479501393
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: underwear-Sheet_6
+      name: right_walk_1
       rect:
         serializedVersion: 2
         x: 96
@@ -272,20 +272,20 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1520de30fb08b59d0800000000000000
-      internalID: -2784490386705546671
+      spriteID: c6467a65685a60ee0800000000000000
+      internalID: -1295165846424427412
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: underwear-Sheet_7
+      name: right_walk_2
       rect:
         serializedVersion: 2
         x: 112
@@ -293,20 +293,20 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4d5af3edf4221ca70800000000000000
-      internalID: 8845388869558838740
+      spriteID: a61a77646da04a990800000000000000
+      internalID: -7375758374304505494
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: underwear-Sheet_8
+      name: right_walk_3
       rect:
         serializedVersion: 2
         x: 128
@@ -314,14 +314,14 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7ed5a5d24dba58090800000000000000
-      internalID: -8032825432563098137
+      spriteID: 13dc406fb14d03a60800000000000000
+      internalID: 7651848983459188017
       vertices: []
       indices: 
       edges: []
