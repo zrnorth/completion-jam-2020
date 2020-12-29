@@ -6,6 +6,8 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     // Game scalars
+    [SerializeField]
+    private float _deathDelay = 1f;
     // Hookups
     [SerializeField]
     private Player _player;
@@ -15,20 +17,12 @@ public class GameManager : MonoBehaviour
     private SceneTransitioner _transition;
     private Coroutine _slowDownTimeCoroutine;
 
-
     // Start is called before the first frame update
     void Start() {
         // Place the player
         _player.transform.position = _playerSpawnPoint.position;
 
         _transition = GetComponent<SceneTransitioner>();
-    }
-
-    private void Update() {
-        // If player hits Esc, return to the main menu.
-        //if (Input.GetKeyDown(KeyCode.Escape)) {
-        //    SceneManager.LoadScene(0); // MainMenu
-        //}
     }
 
     private void ResetGameState() {
@@ -41,20 +35,12 @@ public class GameManager : MonoBehaviour
     }
 
     public void PlayerDied() {
-        // TODO: play animation and pause
         ResetGameState();
-        _transition.LoadScene();
+        StartCoroutine(LoadTransitionAfter(_deathDelay));
     }
 
-    public void CompletedLevel() {
-        // TODO: play a cool animation here
-        ResetGameState();
-        StartCoroutine(CompletedLevelCoroutine());
-    }
-
-    IEnumerator CompletedLevelCoroutine() {
-        _player.FreezePlayer();
-        yield return new WaitForSeconds(3f);
+    IEnumerator LoadTransitionAfter(float seconds) {
+        yield return new WaitForSeconds(seconds);
         _transition.LoadScene();
     }
 

@@ -59,19 +59,21 @@ public class Enemy : MonoBehaviour
         }
     }
 
+    public bool PlayerCanStompThis() {
+        return (GetComponent<Relay>() != null);
+    }
+
     public void Stomp() {
         // We got killed
-        // Todo: play some anim here
         // if we are a relay enemy, apply the effect and continue the game
         Relay relay = GetComponent<Relay>();
         if (relay != null) {
             relay.RelayLevel();
-            _collider.enabled = false;
-            Destroy(gameObject, 1.5f);
-            return;
         }
-        // If we aren't a relay enemy, we lost the game
-        _gameManager.PlayerDied();
+        _collider.enabled = false;
+        _rb.constraints = RigidbodyConstraints2D.None; // So we can rotate pathetically as we fall off screen
+        Destroy(gameObject, 1.5f);
+        return;
     }
 
     public void Enrage() {

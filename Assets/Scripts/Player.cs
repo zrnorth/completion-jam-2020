@@ -29,6 +29,8 @@ public class Player : MonoBehaviour
     private LayerMask _groundMask;
     [SerializeField]
     private PhysicsMaterial2D _extraBouncyMat;
+    [SerializeField]
+    private Sprite _deathSprite;
 
     // State vars
     private int _numDoubleJumpsRemaining;
@@ -38,10 +40,11 @@ public class Player : MonoBehaviour
 
     // Component references
     private Rigidbody2D _rb;
-    private Collider2D _collider;
+    private Collider2D[] _colliders;
     private Animator _anim;
     private GameManager _gameManager;
     private PhysicsMaterial2D _originalMat;
+    private SpriteRenderer _renderer;
     private float _originalGravityScale;
 
     public void SetGroundMask(LayerMask layerMask) {
@@ -51,11 +54,9 @@ public class Player : MonoBehaviour
     private void Start() {
         _rb = GetComponent<Rigidbody2D>();
         _originalMat = _rb.sharedMaterial;
-        _collider = GetComponent<BoxCollider2D>();
+        _colliders = GetComponents<BoxCollider2D>();
         _anim = GetComponent<Animator>();
-        if (!_collider) {
-            _collider = GetComponent<CircleCollider2D>();
-        }
+        _renderer = GetComponent<SpriteRenderer>();
         _numDoubleJumpsRemaining = _doubleJumps;
         _nextJumpTime = Time.time + _jumpCooldown;
         _originalGravityScale = _rb.gravityScale;
@@ -112,7 +113,7 @@ public class Player : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other) {
         switch (other.gameObject.tag) {
             case "KillsPlayer":
-                _gameManager.PlayerDied();
+                Die();
                 return;
             case "Enemy":
                 HitEnemy(other.gameObject.GetComponent<Enemy>());
@@ -132,21 +133,38 @@ public class Player : MonoBehaviour
 
         // Check if we stomped the enemy. 
         float verticalHeightAboveEnemy = transform.position.y - enemy.transform.position.y;
-        if (verticalHeightAboveEnemy > _collider.bounds.extents.y) {
+        if (verticalHeightAboveEnemy > _colliders[0].bounds.extents.y) {
             Jump();
             _anim.SetTrigger("Stomped");
             enemy.Stomp();
-        } // If we didn't stomp the enemy, check if we're allowed to touch this enemy. If not, we die.
+            // if we stomped an enemy we shouldn't we lose.
+            if (!enemy.PlayerCanStompThis()) {
+                Die();
+            }
+        }
+        // If we didn't stomp the enemy, check if we're allowed to touch this enemy. If not, we die.
         else if (!enemy.GetPlayerCanTouch()) {
-            _gameManager.PlayerDied();
-            return;
+            Die();
         }
     }
 
-    private void UpdateGrounded() {
-        float distance = _collider.bounds.extents.y + 0.1f;
+    private void Die() {
+        // TODO Play the right sound
+        // turn off animations and switch the sprite to the dead player
+        _anim.enabled = false;
+        _renderer.sprite = _deathSprite;
+        // Give a jump so we pop up in the air, and disable collisions so we fall off screen
+        Jump();
+        foreach (Collider2D col in _colliders) {
+            col.enabled = false;
+        }
+        _gameManager.PlayerDied();
+    }
 
-        RaycastHit2D hit = Physics2D.BoxCast(_collider.bounds.center, _collider.bounds.size, 0f, Vector2.down, distance, _groundMask);
+    private void UpdateGrounded() {
+        float distance = _colliders[0].bounds.extents.y + 0.1f;
+
+        RaycastHit2D hit = Physics2D.BoxCast(_colliders[0].bounds.center, _colliders[0].bounds.size, 0f, Vector2.down, distance, _groundMask);
         if (hit.collider != null) {
             _lastGroundedTime = GROUNDED;
             _anim.SetBool("Grounded", true);

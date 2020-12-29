@@ -4480,6 +4480,16 @@ PrefabInstance:
       objectReference: {fileID: 1961911748}
     - target: {fileID: 1232463731932836971, guid: a5d5c2927576a0840b5996eca79c6c01,
         type: 3}
+      propertyPath: _attempts
+      value: 24
+      objectReference: {fileID: 0}
+    - target: {fileID: 1232463731932836971, guid: a5d5c2927576a0840b5996eca79c6c01,
+        type: 3}
+      propertyPath: _deathDelay
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1232463731932836971, guid: a5d5c2927576a0840b5996eca79c6c01,
+        type: 3}
       propertyPath: _playerSpawnPoint
       value: 
       objectReference: {fileID: 637288978}
