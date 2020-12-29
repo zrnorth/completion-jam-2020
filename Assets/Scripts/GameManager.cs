@@ -31,22 +31,23 @@ public class GameManager : MonoBehaviour
         //}
     }
 
-    public void PlayerDied() {
-        // TODO: play animation and pause
+    private void ResetGameState() {
         Time.timeScale = 1f;
+        _player.ResetControls();
         if (_slowDownTimeCoroutine != null) {
             StopCoroutine(_slowDownTimeCoroutine);
         }
+    }
 
+    public void PlayerDied() {
+        // TODO: play animation and pause
+        ResetGameState();
         _transition.LoadScene();
     }
 
     public void CompletedLevel() {
         // TODO: play a cool animation here
-        Time.timeScale = 1f;
-        if (_slowDownTimeCoroutine != null) {
-            StopCoroutine(_slowDownTimeCoroutine);
-        }
+        ResetGameState();
         StartCoroutine(CompletedLevelCoroutine());
     }
 

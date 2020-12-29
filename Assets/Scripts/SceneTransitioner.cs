@@ -16,8 +16,8 @@ public class SceneTransitioner : MonoBehaviour
     [SerializeField]
     private int _specifiedSceneIfNeeded = -1;
 
-    public void LoadScene()
-    {
+    public void LoadScene() {
+        Time.timeScale = 1f;
         int currentSceneIdx = SceneManager.GetActiveScene().buildIndex;
 
         switch (type) {

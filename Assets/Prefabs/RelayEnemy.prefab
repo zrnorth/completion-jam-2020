@@ -32,7 +32,7 @@ Transform:
   m_GameObject: {fileID: 7513522855441906299}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 14.86, y: 0, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 1}
+  m_LocalScale: {x: 2.5, y: 2.5, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -151,6 +151,7 @@ MonoBehaviour:
   _groundMask:
     serializedVersion: 2
     m_Bits: 256
+  _playerCanTouch: 0
 --- !u!114 &9189672670467273170
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -163,8 +164,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d62ee30b0cf02549a045c66f41c93ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _effect: 1
+  _effect: 4
   _goal: {fileID: 0}
+  _enemiesContainer: {fileID: 0}
+  _gameManager: {fileID: 0}
+  _player: {fileID: 0}
   _levelGrid: {fileID: 0}
 --- !u!95 &608377576
 Animator:

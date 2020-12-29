@@ -32,6 +32,7 @@ public class Player : MonoBehaviour
     private int _numDoubleJumpsRemaining;
     private float _nextJumpTime;
     private float _lastGroundedTime = GROUNDED;
+    private bool _invertedControls = false;
 
     // Component references
     private Rigidbody2D _rb;
@@ -61,7 +62,7 @@ public class Player : MonoBehaviour
         bool isGrounded = _lastGroundedTime == GROUNDED || Time.time < _lastGroundedTime + _coyoteTime;
 
         float newXVelocity = _rb.velocity.x;
-        float horizInput = Input.GetAxisRaw("Horizontal");
+        float horizInput = GetHorizontalInput();
         float horiz = isGrounded ? horizInput * _horizAcceleration : horizInput * _horizAccelerationAirborne;
         newXVelocity = Mathf.Clamp(newXVelocity + horiz, -_maxHorizSpeed, _maxHorizSpeed);
 
@@ -70,7 +71,7 @@ public class Player : MonoBehaviour
 
         bool canJump = isGrounded || _numDoubleJumpsRemaining > 0;
 
-        if (Input.GetKeyDown(KeyCode.Space) && Time.time > _nextJumpTime && canJump) {
+        if (JumpInputThisFrame() && Time.time > _nextJumpTime && canJump) {
             Jump();
             if (!isGrounded) {
                 _numDoubleJumpsRemaining--;
@@ -78,7 +79,7 @@ public class Player : MonoBehaviour
         }
         // Reduce gravity while jump is held, so that the player can more
         // granularly choose how high to jump.
-        if (Input.GetKey(KeyCode.Space) && _rb.velocity.y > 0f) {
+        if (JumpInputBeingHeldDown() && _rb.velocity.y > 0f) {
 
             _rb.gravityScale = _originalGravityScale / _jumpingGravityReduction;
         } else {
@@ -152,5 +153,33 @@ public class Player : MonoBehaviour
                 _anim.SetBool("Grounded", false);
             }
         }
+    }
+
+    private float GetHorizontalInput() {
+        if (_invertedControls) {
+            return Input.GetAxis("Vertical");
+        }
+        return Input.GetAxisRaw("Horizontal");
+    }
+
+    private bool JumpInputThisFrame() {
+        if (_invertedControls) {
+            return Input.GetKeyDown(KeyCode.D);
+        }
+        return Input.GetKeyDown(KeyCode.Space);
+    }
+
+    private bool JumpInputBeingHeldDown() {
+        if (_invertedControls) {
+            return Input.GetKey(KeyCode.D);
+        }
+        return Input.GetKey(KeyCode.Space);
+    }
+
+    public void InvertControls() {
+        _invertedControls = true;
+    }
+    public void ResetControls() {
+        _invertedControls = false;
     }
 }

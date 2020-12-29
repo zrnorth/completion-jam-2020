@@ -11,7 +11,8 @@ public class Relay : MonoBehaviour
         InvertMap,
         RotateMap180,
         TurnCivsIntoPlatforms,
-        SlowDownTime
+        SlowDownTime,
+        InvertControls
     }
 
     [SerializeField]
@@ -41,6 +42,9 @@ public class Relay : MonoBehaviour
                 return;
             case Effect.SlowDownTime:
                 _gameManager.SlowDownTime();
+                return;
+            case Effect.InvertControls:
+                _player.InvertControls();
                 return;
             case Effect.None:
             default:
