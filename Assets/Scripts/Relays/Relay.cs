@@ -14,6 +14,7 @@ public class Relay : MonoBehaviour
         SlowDownTime,
         InvertControls,
         Bouncy,
+        CrazyCivs
     }
 
     [SerializeField]
@@ -50,6 +51,9 @@ public class Relay : MonoBehaviour
             case Effect.Bouncy:
                 _player.SetBouncy();
                 return;
+            case Effect.CrazyCivs:
+                EnableCrazyCivs();
+                return;
             case Effect.None:
             default:
                 return;
@@ -84,5 +88,11 @@ public class Relay : MonoBehaviour
         }
         // Finally, update the player's Grounded function to look for enemies instead of ground tiles
         _player.SetGroundMask(LayerMask.GetMask("Enemies"));
+    }
+
+    private void EnableCrazyCivs() {
+        foreach (Transform childTransform in _enemiesContainer.transform) {
+            childTransform.GetComponent<Enemy>().Enrage();
+        }
     }
 }

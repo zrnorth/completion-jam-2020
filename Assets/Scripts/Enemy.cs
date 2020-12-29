@@ -74,4 +74,10 @@ public class Enemy : MonoBehaviour
         _gameManager.PlayerDied();
     }
 
+    public void Enrage() {
+        _currSpeed *= 2;
+        _speed *= 2;
+        _anim.speed *= 2;
+    }
+
 }

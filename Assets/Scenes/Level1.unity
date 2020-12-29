@@ -998,7 +998,7 @@ PrefabInstance:
     - target: {fileID: 9189672670467273170, guid: e6b0357ad93900e4fa4c6b317b0dea8b,
         type: 3}
       propertyPath: _effect
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 9189672670467273170, guid: e6b0357ad93900e4fa4c6b317b0dea8b,
         type: 3}
