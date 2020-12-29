@@ -12,7 +12,8 @@ public class Relay : MonoBehaviour
         RotateMap180,
         TurnCivsIntoPlatforms,
         SlowDownTime,
-        InvertControls
+        InvertControls,
+        Bouncy,
     }
 
     [SerializeField]
@@ -45,6 +46,9 @@ public class Relay : MonoBehaviour
                 return;
             case Effect.InvertControls:
                 _player.InvertControls();
+                return;
+            case Effect.Bouncy:
+                _player.SetBouncy();
                 return;
             case Effect.None:
             default:

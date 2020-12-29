@@ -34,6 +34,7 @@ public class GameManager : MonoBehaviour
     private void ResetGameState() {
         Time.timeScale = 1f;
         _player.ResetControls();
+        _player.ResetPhysics();
         if (_slowDownTimeCoroutine != null) {
             StopCoroutine(_slowDownTimeCoroutine);
         }

@@ -32,7 +32,7 @@ public class Enemy : MonoBehaviour
 
     private void Update() {
         // An Relay ability freezes these in place by setting this type.
-        if (_rb.bodyType == RigidbodyType2D.Static) return; 
+        if (_rb.bodyType == RigidbodyType2D.Static) return;
 
         UpdateGroundedAndMaybeChangeDirection();
         Vector2 vel = _rb.velocity;
@@ -66,10 +66,12 @@ public class Enemy : MonoBehaviour
         Relay relay = GetComponent<Relay>();
         if (relay != null) {
             relay.RelayLevel();
-            Destroy(gameObject);
+            _collider.enabled = false;
+            Destroy(gameObject, 1.5f);
             return;
         }
         // If we aren't a relay enemy, we lost the game
         _gameManager.PlayerDied();
     }
+
 }

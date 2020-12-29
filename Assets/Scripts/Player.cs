@@ -27,6 +27,8 @@ public class Player : MonoBehaviour
     private float _coyoteTime = 0.1f;
     [SerializeField]
     private LayerMask _groundMask;
+    [SerializeField]
+    private PhysicsMaterial2D _extraBouncyMat;
 
     // State vars
     private int _numDoubleJumpsRemaining;
@@ -39,6 +41,7 @@ public class Player : MonoBehaviour
     private Collider2D _collider;
     private Animator _anim;
     private GameManager _gameManager;
+    private PhysicsMaterial2D _originalMat;
     private float _originalGravityScale;
 
     public void SetGroundMask(LayerMask layerMask) {
@@ -47,6 +50,7 @@ public class Player : MonoBehaviour
 
     private void Start() {
         _rb = GetComponent<Rigidbody2D>();
+        _originalMat = _rb.sharedMaterial;
         _collider = GetComponent<BoxCollider2D>();
         _anim = GetComponent<Animator>();
         if (!_collider) {
@@ -181,5 +185,13 @@ public class Player : MonoBehaviour
     }
     public void ResetControls() {
         _invertedControls = false;
+    }
+
+    public void SetBouncy() {
+        _rb.sharedMaterial = _extraBouncyMat;
+    }
+
+    public void ResetPhysics() {
+        _rb.sharedMaterial = _originalMat;
     }
 }

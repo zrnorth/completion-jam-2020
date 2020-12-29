@@ -272,7 +272,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.16862746, g: 0.15686275, b: 0.12941177, a: 0}
+  m_BackGroundColor: {r: 0.5019608, g: 0.5019608, b: 0.5019608, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -594,6 +594,11 @@ PrefabInstance:
       propertyPath: _maxHorizSpeed
       value: 14
       objectReference: {fileID: 0}
+    - target: {fileID: 2742909327289246980, guid: 76da16912254f564481f62cdffe7ea7f,
+        type: 3}
+      propertyPath: _extraBouncyMat
+      value: 
+      objectReference: {fileID: 6200000, guid: 4f3cd4ee8759f234da039cddb16d63b7, type: 2}
     - target: {fileID: 2742909327289246980, guid: 76da16912254f564481f62cdffe7ea7f,
         type: 3}
       propertyPath: _horizAcceleration
@@ -993,7 +998,7 @@ PrefabInstance:
     - target: {fileID: 9189672670467273170, guid: e6b0357ad93900e4fa4c6b317b0dea8b,
         type: 3}
       propertyPath: _effect
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 9189672670467273170, guid: e6b0357ad93900e4fa4c6b317b0dea8b,
         type: 3}
