@@ -57,7 +57,6 @@ public class Player : MonoBehaviour
         _gameManager = GameObject.Find("Game Manager").GetComponent<GameManager>();
     }
 
-
     private void GetInputAndCalculateMoment() {
         bool isGrounded = _lastGroundedTime == GROUNDED || Time.time < _lastGroundedTime + _coyoteTime;
 
@@ -91,8 +90,6 @@ public class Player : MonoBehaviour
         _rb.velocity = new Vector2(_rb.velocity.x, _jumpForce);
         _nextJumpTime = Time.time + _jumpCooldown;
     }
-
-
 
     private void Update() {
         GetInputAndCalculateMoment();
@@ -134,8 +131,10 @@ public class Player : MonoBehaviour
             Jump();
             _anim.SetTrigger("Stomped");
             enemy.Stomp();
-        } else {
+        } // If we didn't stomp the enemy, check if we're allowed to touch this enemy. If not, we die.
+        else if (!enemy.GetPlayerCanTouch()) {
             _gameManager.PlayerDied();
+            return;
         }
     }
 

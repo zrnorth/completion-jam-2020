@@ -10,7 +10,8 @@ public class Relay : MonoBehaviour
         None,
         InvertMap,
         RotateMap180,
-        TurnCivsIntoPlatforms
+        TurnCivsIntoPlatforms,
+        SlowDownTime
     }
 
     [SerializeField]
@@ -35,6 +36,9 @@ public class Relay : MonoBehaviour
                 return;
             case Effect.TurnCivsIntoPlatforms:
                 TurnCivsIntoPlatforms();
+                return;
+            case Effect.SlowDownTime:
+                SlowDownTime();
                 return;
             case Effect.None:
             default:
@@ -70,5 +74,9 @@ public class Relay : MonoBehaviour
         }
         // Finally, update the player's Grounded function to look for enemies instead of ground tiles
         _player.SetGroundMask(LayerMask.GetMask("Enemies"));
+    }
+
+    private void SlowDownTime() {
+        Time.timeScale = 0.5f;
     }
 }

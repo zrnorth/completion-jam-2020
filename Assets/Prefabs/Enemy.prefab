@@ -149,6 +149,7 @@ MonoBehaviour:
   _groundMask:
     serializedVersion: 2
     m_Bits: 256
+  _playerCanTouch: 1
 --- !u!95 &398846017
 Animator:
   serializedVersion: 3

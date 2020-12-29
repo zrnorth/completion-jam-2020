@@ -8,6 +8,8 @@ public class Enemy : MonoBehaviour
     private float _speed;
     [SerializeField]
     private LayerMask _groundMask;
+    [SerializeField]
+    private bool _playerCanTouch;
 
     private Rigidbody2D _rb;
     private BoxCollider2D _collider;
@@ -22,6 +24,10 @@ public class Enemy : MonoBehaviour
         _anim = GetComponent<Animator>();
         _currSpeed = 0f;
         _gameManager = GameObject.Find("Game Manager").GetComponent<GameManager>();
+    }
+
+    public bool GetPlayerCanTouch() {
+        return _playerCanTouch;
     }
 
     private void Update() {
