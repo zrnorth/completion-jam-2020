@@ -12,7 +12,7 @@ EditorBuildSettings:
     path: Assets/Scenes/HowToPlay.unity
     guid: 34c74edaec9d18f44be77154deeb45cf
   - enabled: 1
-    path: Assets/Scenes/Level0.unity
+    path: Assets/Scenes/InvertLevelEasy.unity
     guid: ed583a8f1fd1f4a4a970660adcf5dfc9
   - enabled: 1
     path: Assets/Scenes/Level1.unity

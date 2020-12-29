@@ -32,7 +32,9 @@ public class Relay : MonoBehaviour
 
     public void RelayLevel() {
         _goal.SetActive(true);
-        BGM.Instance.SetFastMusic();
+        if (BGM.Instance) {
+            BGM.Instance.SetFastMusic();
+        }
         switch (_effect) {
             case Effect.InvertMap:
                 InvertMap();

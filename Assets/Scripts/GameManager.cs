@@ -32,7 +32,9 @@ public class GameManager : MonoBehaviour
         if (_slowDownTimeCoroutine != null) {
             StopCoroutine(_slowDownTimeCoroutine);
         }
-        BGM.Instance.SetSlowMusic();
+        if (BGM.Instance) {
+            BGM.Instance.SetSlowMusic();
+        }
     }
 
     public void PlayerDied() {
