@@ -9,6 +9,7 @@ public class Relay : MonoBehaviour
     {
         None,
         InvertMap,
+        InvertGravity,
     }
 
     [SerializeField]
@@ -19,35 +20,14 @@ public class Relay : MonoBehaviour
     [SerializeField]
     private Grid _levelGrid;
 
-    private void Start() {
-        //ColorBasedOnEffect();
-    }
-
-    /*
-    private void ColorBasedOnEffect() {
-        // Based on the relay type, we color the sprite this is attached to (if it exists)
-        SpriteRenderer renderer = GetComponent<SpriteRenderer>();
-        if (renderer) {
-            Color color;
-            switch (_effect) {
-                case Effect.InvertMap:
-                    color = new Color(1f, 0.5f, 0, 1f);
-                    break;
-                case Effect.None:
-                    color = Color.white;
-                    break;
-                default:
-                    return;
-            }
-            renderer.color = color;
-        }
-    }*/
-
     public void RelayLevel() {
         _goal.SetActive(true);
         switch (_effect) {
             case Effect.InvertMap:
                 InvertMap();
+                return;
+            case Effect.InvertGravity:
+                InvertGravity();
                 return;
             case Effect.None:
             default:
@@ -67,5 +47,10 @@ public class Relay : MonoBehaviour
         deathTilemap.SetActive(false);
         invertedGroundTilemap.SetActive(true);
         invertedDeathTilemap.SetActive(true);
+    }
+
+    // Relay effect. Inverts the gravity in the scene.
+    private void InvertGravity() {
+        _levelGrid.transform.eulerAngles = new Vector3(0, 0, 180);
     }
 }

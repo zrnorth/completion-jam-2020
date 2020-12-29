@@ -45,8 +45,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09350270547c11b4a9e2f71d61cafa93, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _sceneToLoad: 0
-  loadNextIndex: 1
+  type: 0
+  _specifiedSceneIfNeeded: -1
 --- !u!58 &1124622291
 CircleCollider2D:
   m_ObjectHideFlags: 0

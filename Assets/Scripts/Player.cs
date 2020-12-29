@@ -136,10 +136,12 @@ public class Player : MonoBehaviour
         RaycastHit2D hit = Physics2D.BoxCast(_collider.bounds.center, _collider.bounds.size, 0f, Vector2.down, distance, _groundMask);
         if (hit.collider != null) {
             _lastGroundedTime = GROUNDED;
+            _anim.SetBool("Grounded", true);
             _numDoubleJumpsRemaining = _doubleJumps;
         } else {
             if (_lastGroundedTime == GROUNDED) { // if we just jumped, set the current time to the last grounded time
                 _lastGroundedTime = Time.time;
+                _anim.SetBool("Grounded", false);
             }
         }
     }
