@@ -9,14 +9,18 @@ public class Relay : MonoBehaviour
     {
         None,
         InvertMap,
-        InvertGravity,
+        RotateMap180,
+        TurnCivsIntoPlatforms
     }
 
     [SerializeField]
     private Effect _effect;
-
     [SerializeField]
     private GameObject _goal;
+    [SerializeField]
+    private GameObject _enemiesContainer;
+    [SerializeField]
+    private Player _player;
     [SerializeField]
     private Grid _levelGrid;
 
@@ -26,8 +30,11 @@ public class Relay : MonoBehaviour
             case Effect.InvertMap:
                 InvertMap();
                 return;
-            case Effect.InvertGravity:
-                InvertGravity();
+            case Effect.RotateMap180:
+                RotateMap180();
+                return;
+            case Effect.TurnCivsIntoPlatforms:
+                TurnCivsIntoPlatforms();
                 return;
             case Effect.None:
             default:
@@ -50,7 +57,18 @@ public class Relay : MonoBehaviour
     }
 
     // Relay effect. Inverts the gravity in the scene.
-    private void InvertGravity() {
+    private void RotateMap180() {
         _levelGrid.transform.eulerAngles = new Vector3(0, 0, 180);
+    }
+
+    private void TurnCivsIntoPlatforms() {
+        // First, delete the platform part of the map
+        _levelGrid.transform.Find("Ground Tilemap").gameObject.SetActive(false);
+        // Next, iterate every enemy, turn them gray, and freeze them in place
+        foreach (Transform childTransform in _enemiesContainer.transform) {
+            childTransform.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
+        }
+        // Finally, update the player's Grounded function to look for enemies instead of ground tiles
+        _player.SetGroundMask(LayerMask.GetMask("Enemies"));
     }
 }

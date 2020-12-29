@@ -40,6 +40,10 @@ public class Player : MonoBehaviour
     private GameManager _gameManager;
     private float _originalGravityScale;
 
+    public void SetGroundMask(LayerMask layerMask) {
+        _groundMask = layerMask;
+    }
+
     private void Start() {
         _rb = GetComponent<Rigidbody2D>();
         _collider = GetComponent<BoxCollider2D>();
@@ -119,6 +123,11 @@ public class Player : MonoBehaviour
     }
 
     private void HitEnemy(Enemy enemy) {
+        // If the enemy isn't set to dynamic movement, we've frozen it with a Relay ability, so don't trigger this.
+        if (enemy.GetComponent<Rigidbody2D>().bodyType != RigidbodyType2D.Dynamic) {
+            return;
+        }
+
         // Check if we stomped the enemy. 
         float verticalHeightAboveEnemy = transform.position.y - enemy.transform.position.y;
         if (verticalHeightAboveEnemy > _collider.bounds.extents.y) {

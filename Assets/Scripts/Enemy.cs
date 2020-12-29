@@ -25,6 +25,9 @@ public class Enemy : MonoBehaviour
     }
 
     private void Update() {
+        // An Relay ability freezes these in place by setting this type.
+        if (_rb.bodyType == RigidbodyType2D.Static) return; 
+
         UpdateGroundedAndMaybeChangeDirection();
         Vector2 vel = _rb.velocity;
         vel.x = _currSpeed;
