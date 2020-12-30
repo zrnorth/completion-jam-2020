@@ -33,8 +33,17 @@ EditorBuildSettings:
     path: Assets/Scenes/RotateLevelEasy.unity
     guid: 89654a2b206b1df4b918a0f31011fba5
   - enabled: 1
+    path: Assets/Scenes/BouncyHard.unity
+    guid: 99c480424f31a6a468b49739abecd365
+  - enabled: 1
     path: Assets/Scenes/EnrageHard.unity
     guid: f14f4a8e033b5b640bb97e072836bc7e
+  - enabled: 1
+    path: Assets/Scenes/FreezeCivsHard.unity
+    guid: 986565d58207d6e45b1dd73a12c8ddde
+  - enabled: 1
+    path: Assets/Scenes/InvertControlsHard.unity
+    guid: 0d442162024f85d47adc73861cb33ee5
   - enabled: 1
     path: Assets/Scenes/Level1.unity
     guid: 27da8dffb6611ec48b6559fa271d6058
