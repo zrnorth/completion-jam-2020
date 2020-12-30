@@ -39,4 +39,11 @@ public class BGM : MonoBehaviour
             source.mute = (source.clip != _fastMusic);
         }
     }
+
+    // Changing the pitch is actually how you adjust the audio speed
+    public void SetAudioSpeed(float pitch) {
+        foreach (AudioSource source in _audioSources) {
+            source.pitch = pitch;
+        }
+    }
 }

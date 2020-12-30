@@ -25,10 +25,11 @@ public class GameManager : MonoBehaviour
         _transition = GetComponent<SceneTransitioner>();
     }
 
-    private void ResetGameState() {
-        Time.timeScale = 1f;
+    public void ResetGameState() {
+        SetTimeScaleOfGame(1f);
         _player.ResetControls();
         _player.ResetPhysics();
+        _player.ResetSlowedTime();
         if (_slowDownTimeCoroutine != null) {
             StopCoroutine(_slowDownTimeCoroutine);
         }
@@ -38,12 +39,12 @@ public class GameManager : MonoBehaviour
     }
 
     public void PlayerDied() {
-        ResetGameState();
         StartCoroutine(LoadTransitionAfter(_deathDelay));
     }
 
     IEnumerator LoadTransitionAfter(float seconds) {
-        yield return new WaitForSeconds(seconds);
+        yield return new WaitForSecondsRealtime(seconds);
+        ResetGameState();
         _transition.LoadScene();
     }
 
@@ -51,21 +52,22 @@ public class GameManager : MonoBehaviour
         _slowDownTimeCoroutine = StartCoroutine(RelayEffectSlowDownTime());
     }
 
+    private void SetTimeScaleOfGame(float scale) {
+        Time.timeScale = scale;
+        _player.SetOpacityForSlowedEffect(scale);
+        if (BGM.Instance) {
+            BGM.Instance.SetAudioSpeed(scale);
+        }
+    }
+
     // This effect is caused by the SlowDownTime relay. It gradually slows the game down until 0, then player dies.
     public IEnumerator RelayEffectSlowDownTime() {
-        Time.timeScale = 0.8f;
-        yield return new WaitForSecondsRealtime(2.5f);
-        Time.timeScale = 0.6f;
-        yield return new WaitForSecondsRealtime(2f);
-        Time.timeScale = 0.4f;
-        yield return new WaitForSecondsRealtime(2f);
-        Time.timeScale = 0.2f;
-        yield return new WaitForSecondsRealtime(2f);
-        Time.timeScale = 0.1f;
+        for (float f = 1.0f; f > 0f; f -= 0.1f) {
+            yield return new WaitForSecondsRealtime(1.2f);
+            SetTimeScaleOfGame(f);
+        }
+        SetTimeScaleOfGame(0f);
         yield return new WaitForSecondsRealtime(1.5f);
-        Time.timeScale = 0.0f;
-        yield return new WaitForSecondsRealtime(1.5f);
-        Time.timeScale = 1.0f;
         PlayerDied();
     }
 }

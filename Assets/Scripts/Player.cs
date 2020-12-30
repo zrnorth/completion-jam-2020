@@ -214,16 +214,32 @@ public class Player : MonoBehaviour
 
     public void InvertControls() {
         _invertedControls = true;
+        _renderer.color = Color.green;
     }
     public void ResetControls() {
         _invertedControls = false;
+        ResetColor();
     }
 
     public void SetBouncy() {
         _rb.sharedMaterial = _extraBouncyMat;
+        _renderer.color = Color.cyan;
     }
 
     public void ResetPhysics() {
         _rb.sharedMaterial = _originalMat;
+        ResetColor();
+    }
+
+    public void SetOpacityForSlowedEffect(float opacity) {
+        _renderer.color = new Vector4(_renderer.color.r, _renderer.color.g, _renderer.color.b, opacity);
+    }
+
+    public void ResetSlowedTime() {
+        ResetColor();
+    }
+
+    public void ResetColor() {
+        _renderer.color = Color.white;
     }
 }

@@ -39,8 +39,15 @@ public class SceneTransitioner : MonoBehaviour
     private IEnumerator LoadSceneAfterClipFinishes(int scene) {
         if (_transitionClip != null) {
             AudioSource.PlayClipAtPoint(_transitionClip, transform.position);
-            yield return new WaitForSeconds(0.75f); // Hack here
+            yield return new WaitForSecondsRealtime(0.75f); // Hack here
         }
+        // If there's a game manager, tell it to reset state before loading next scene,
+        // in case it's the exact same scene.
+        GameObject gameManager = GameObject.Find("Game Manager");
+        if (gameManager != null) {
+            gameManager.GetComponent<GameManager>().ResetGameState();
+        }
+
         SceneManager.LoadScene(scene);
     }
 }

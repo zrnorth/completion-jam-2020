@@ -79,7 +79,9 @@ public class Relay : MonoBehaviour
 
     // Relay effect. Inverts the gravity in the scene.
     private void RotateMap180() {
-        _levelGrid.transform.eulerAngles = new Vector3(0, 0, 180);
+        _levelGrid.transform.localScale = new Vector3(_levelGrid.transform.localScale.x,
+                                                      _levelGrid.transform.localScale.y * -1,
+                                                      _levelGrid.transform.localScale.z);
     }
 
     private void TurnCivsIntoPlatforms() {
