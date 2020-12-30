@@ -38,6 +38,13 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    private void Update() {
+        // Listen for Escape press and quit the game
+        if (Input.GetKeyDown(KeyCode.Escape)) {
+            Application.Quit();
+        }
+    }
+
     public void PlayerDied() {
         StartCoroutine(LoadTransitionAfter(_deathDelay));
     }

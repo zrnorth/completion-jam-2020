@@ -39,6 +39,7 @@ public class Player : MonoBehaviour
     private float _nextJumpTime;
     private float _lastGroundedTime = GROUNDED;
     private bool _invertedControls = false;
+    private float _currentJumpForce;
 
     // Component references
     private Rigidbody2D _rb;
@@ -64,6 +65,7 @@ public class Player : MonoBehaviour
         _nextJumpTime = Time.time + _jumpCooldown;
         _originalGravityScale = _rb.gravityScale;
         _gameManager = GameObject.Find("Game Manager").GetComponent<GameManager>();
+        _currentJumpForce = _jumpForce;
     }
 
     private void GetInputAndCalculateMoment() {
@@ -100,7 +102,7 @@ public class Player : MonoBehaviour
             AudioSource.PlayClipAtPoint(_jumpAudio, transform.position);
         }
         if (_dead) return;
-        _rb.velocity = new Vector2(_rb.velocity.x, _jumpForce);
+        _rb.velocity = new Vector2(_rb.velocity.x, _currentJumpForce);
         _nextJumpTime = Time.time + _jumpCooldown;
     }
 
@@ -227,11 +229,13 @@ public class Player : MonoBehaviour
 
     public void SetBouncy() {
         _rb.sharedMaterial = _extraBouncyMat;
+        _currentJumpForce *= 1.25f;
         _renderer.color = Color.cyan;
     }
 
     public void ResetPhysics() {
         _rb.sharedMaterial = _originalMat;
+        _currentJumpForce = _jumpForce;
         ResetColor();
     }
 
