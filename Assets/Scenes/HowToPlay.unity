@@ -728,6 +728,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8071735027610522858, guid: 88394e97bb476bf45a6be8b5fb9d3094,
+        type: 3}
+      propertyPath: m_BackGroundColor.b
+      value: 0.5019608
+      objectReference: {fileID: 0}
+    - target: {fileID: 8071735027610522858, guid: 88394e97bb476bf45a6be8b5fb9d3094,
+        type: 3}
+      propertyPath: m_BackGroundColor.g
+      value: 0.5019608
+      objectReference: {fileID: 0}
+    - target: {fileID: 8071735027610522858, guid: 88394e97bb476bf45a6be8b5fb9d3094,
+        type: 3}
+      propertyPath: m_BackGroundColor.r
+      value: 0.5019608
+      objectReference: {fileID: 0}
+    - target: {fileID: 8320141896044018309, guid: 88394e97bb476bf45a6be8b5fb9d3094,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 88394e97bb476bf45a6be8b5fb9d3094, type: 3}
 --- !u!1 &850417353
@@ -1211,9 +1231,9 @@ RectTransform:
   m_Father: {fileID: 2044883405}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 230, y: 452}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 230, y: -78}
   m_SizeDelta: {x: 379.41187, y: 71.13974}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1412471541
