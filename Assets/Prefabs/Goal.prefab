@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09350270547c11b4a9e2f71d61cafa93, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: 0
+  type: 1
   _specifiedSceneIfNeeded: -1
   _transitionClip: {fileID: 8300000, guid: 0529d162ac416734e8ee93b973214bbb, type: 3}
 --- !u!58 &1124622291
