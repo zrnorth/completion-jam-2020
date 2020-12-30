@@ -48,7 +48,7 @@ public class Enemy : MonoBehaviour
         if (_currSpeed < 0) {
             offsetHoriz *= -1f;
         }
-        float distanceVert = _collider.bounds.extents.y + 0.1f;
+        float distanceVert = _collider.bounds.extents.y + 0.25f;
         RaycastHit2D hit = Physics2D.Raycast(transform.position + new Vector3(offsetHoriz, 0), Vector3.down, distanceVert, _groundMask);
         // We are walking off the edge, so change directions
         if (hit.collider == null && _grounded) {

@@ -138,6 +138,10 @@ public class Player : MonoBehaviour
         if (enemy.GetComponent<Rigidbody2D>().bodyType != RigidbodyType2D.Dynamic) {
             return;
         }
+        // If we're moving upwards we're just passing the enemy so don't stomp it.
+        if (_rb.velocity.y > 0) {
+            return;
+        }
 
         // Check if we stomped the enemy. 
         float verticalHeightAboveEnemy = transform.position.y - enemy.transform.position.y;
@@ -193,7 +197,7 @@ public class Player : MonoBehaviour
 
     private float GetHorizontalInput() {
         if (_invertedControls) {
-            return Input.GetAxis("Vertical");
+            return Input.GetAxisRaw("Vertical");
         }
         return Input.GetAxisRaw("Horizontal");
     }
